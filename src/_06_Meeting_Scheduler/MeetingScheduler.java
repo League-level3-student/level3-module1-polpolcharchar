@@ -21,8 +21,34 @@ public class MeetingScheduler {
      * Time availability always represents 1 hour
      * Assume both schedules are in the same time zones
      */
+	
+	
     public static Schedule getMutualAvailability(Schedule person1, Schedule person2) {
-        
-        return null;
+    	Schedule result = new Schedule();
+        for(String i : person1.getSchedule().keySet()) {//loop through the first person's days
+        	
+        	if(person2.getSchedule().containsKey(i)) {//check if person2 is avalible on that day
+        		//System.out.println("Person 2 contains key");
+        		for(int x : person1.getSchedule().get(i)) {
+        			
+        			if(person2.getSchedule().get(i).contains(x)) {
+        				
+        				result.addAvailability(i, x);
+        				//System.out.println("added");
+        				
+        			}
+        			
+        		}
+        		
+        	}
+        	
+        }
+//        for(String i : result.getSchedule().keySet()) {
+//        	for(Integer j : result.getSchedule().get(i)) {
+//        		System.out.println(i + " at " + i);
+//        	}
+//        }
+//        System.out.println("\n\n\n\n\n\n");
+        return result;
     }
 }

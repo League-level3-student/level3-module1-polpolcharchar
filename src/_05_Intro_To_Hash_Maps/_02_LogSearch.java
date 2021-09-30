@@ -88,6 +88,13 @@ public class _02_LogSearch implements ActionListener {
 			}else {
 				JOptionPane.showMessageDialog(null, "That ID number does not exist!");
 			}
+		}else if(e.getSource().equals(button3)) {
+			//view list
+			String display = "";
+			for(Integer i : m.keySet()) {
+				display += "ID: " + i + "  Name: " + m.get(i) + "\n";
+			}
+			JOptionPane.showMessageDialog(null, display);
 		}
 	}
 	
